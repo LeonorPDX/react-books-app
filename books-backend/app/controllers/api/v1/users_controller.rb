@@ -10,7 +10,7 @@ class Api::V1::UsersController < ApplicationController
         render json: user, only: [:id, :username], include: [:notes, :books]
     end
 
-    def update # Fetch sends patch request to ../api/v1/users/:id when removing book from 
+    def update # Fetch sends patch request to ../api/v1/users/:id when removing book from user's book collection
         ub = UserBook.find_by(user_id: params[:id], book_id: params[:book_id])  # Could refactor into instance method in the User class, def remove_book(book_id)
         if ub.destroy
             book = Book.find(params[:book_id])

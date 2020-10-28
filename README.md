@@ -7,10 +7,9 @@ This app was developed as a portfolio project for Flatiron School's Online Softw
 ## Installation
 * Clone this repo
 * `cd` into the backend directory
-* Run bundle
-* Run rails s
-* Either right click the index.html file to open in browser, or cd into the frontend directory and use terminal to run the frontend
-* To explore the Rails API, open your browser to localhost:3000 and use RESTful routes to view the books, users, and notes routes.
+* Run `bundle install`
+* Run `rails s`
+* Either right click the index.html file to open in browser, or `cd` into the frontend directory and use terminal to run the frontend
 
 ## Contributing
 Bug reports and pull requests are welcome on GitHub at https://github.com/LeonorPDX/react-books-app
