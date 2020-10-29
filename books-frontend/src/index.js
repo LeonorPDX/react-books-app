@@ -8,9 +8,9 @@ import{ Provider } from 'react-redux';
 import App from './App';
 import rootReducer from './reducers/reducer.js';
 
-// Do we need compose from redux? Vid 4, 10min
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-const store = createStore(rootReducer, applyMiddleware(thunk))
+const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunk)))
 
 ReactDOM.render(
 <Provider store={store}>

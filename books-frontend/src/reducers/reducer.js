@@ -1,53 +1,33 @@
 import { combineReducers } from "redux";
  
 const rootReducer = combineReducers({
-  allBooks: manageBooks,
-  displayBooks: manageDisplayBooks,
-  notes: manageNotes,
+  books: manageBooks,
   user: manageUser,
 });
  
 export default rootReducer;
 
 
-function manageBooks(state = [], action) {
+function manageBooks(state = {allBooks: [], displayBooks: []}, action) {
     switch (action.type) {
       case 'ADD_ALL_BOOKS':
 
-        return state.concat(action.books)
-  
+        return {...state, allBooks: action.books, displayBooks: action.books}
+        
+    case 'UPDATE_DISPLAY_BOOKS':
+
+        return {...state, displayBooks: action.books}
+    
       default:
         return state;
     }
 };
 
-function manageDisplayBooks(state = [], action) {
-    switch (action.type) {
-      case 'SET_DISPLAY_BOOKS':
-
-        return [action.books]
-  
-      default:
-        return state;
-    }
-};
-
-function manageNotes(state = [], action) {
-    switch (action.type) {
-      case 'ADD_NOTES':
-
-        return state.concat(action.notes)
-  
-      default:
-        return state;
-    }
-};
-
-function manageUser(state = {username: nil, id: nil}, action) {
+function manageUser(state = {username: "", id: 0, userBooks: [], userNotes: []}, action) {
     switch (action.type) {
         case 'ADD_USER':
   
-          return {...state, username: action.user.username, id: action.user.id}
+          return {...state, username: action.user.username, id: action.user.id, userBooks: action.user.books, userNotes: action.user.notes }
 
         default:
           return state;
