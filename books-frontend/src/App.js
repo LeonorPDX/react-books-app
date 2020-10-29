@@ -13,7 +13,7 @@ class App extends React.Component {
 
         <div className="container">
 
-          <a className="navbar-brand" href="#">Navbar</a>
+          <a className="navbar-brand" href="http://localhost:3000">Boss Books</a>
 
           <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
             aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -24,25 +24,13 @@ class App extends React.Component {
 
             <ul className="navbar-nav mr-auto">
               <li className="nav-item active">
-                <a className="nav-link" href="#">Home
-                  <span className="sr-only">(current)</span>
-                </a>
+                <a className="nav-link" href="http://localhost:3000">Home</a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">Features</a>
+                <a className="nav-link" href="http://localhost:3000">Features</a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">Pricing</a>
-              </li>
-
-              <li className="nav-item dropdown">
-                <a className="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
-                  aria-expanded="false">Dropdown</a>
-                <div className="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
-                  <a className="dropdown-item" href="#">Action</a>
-                  <a className="dropdown-item" href="#">Another action</a>
-                  <a className="dropdown-item" href="#">Something else here</a>
-                </div>
+                <a className="nav-link" href="http://localhost:3000">Pricing</a>
               </li>
 
             </ul>
