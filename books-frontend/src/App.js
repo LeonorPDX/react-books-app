@@ -34,23 +34,17 @@ class App extends React.Component {
               </li>
 
             </ul>
-
-            <form className="form-inline">
-              <div className="md-form my-0">
-                <input className="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" />
-              </div>
-            </form>
           </div>
         </div>
         </nav>
         <div className="container">
-        <div className="row pt-5">
+          <div className="row pt-5">
             <div className="col text-center">
               <h1>Boss Books</h1>
               <h4>Collect your books and your thoughts.</h4>
               <br />
             </div>
-            </div>
+          </div>
         </div>
         </header>
 
