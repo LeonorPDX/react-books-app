@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import Books from '../components/books/Books';
 import { fetchBooks } from '../actions/fetchBooks'
+import SearchBooks from '../components/books/SearchBooks';
 
 class BooksContainer extends Component {
 
@@ -13,6 +14,7 @@ class BooksContainer extends Component {
     render() {
         return (
         <div>
+          <SearchBooks books={this.props.books} />
           <Books books={this.props.books} />
         </div>
         )
