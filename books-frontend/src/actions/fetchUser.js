@@ -16,10 +16,8 @@ export const fetchUser = (userInput) => {
     return (dispatch) => {
         fetch('http://localhost:3000/api/v1/users/', obj)
         .then(resp => resp.json())
-        // changes after this
         .then(data => {
-            console.log(data)
-        // dispatch({ type: 'ADD_USER', books: data })
+            dispatch({ type: 'ADD_USER', user: data })
         })
     }
 }
