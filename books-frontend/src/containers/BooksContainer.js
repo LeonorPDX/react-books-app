@@ -32,6 +32,6 @@ function mapDispatch(d) {
     return { 
       fetchBooks: () => d(fetchBooks())
     }
-  }
+}
   
-  export default connect(mapState, mapDispatch)(BooksContainer);
+export default connect(mapState, mapDispatch)(BooksContainer);

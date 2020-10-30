@@ -6,4 +6,4 @@ export const fetchBooks = () => {
           dispatch({ type: 'ADD_ALL_BOOKS', books: data })
         })
     }
-  }
+}

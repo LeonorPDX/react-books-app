@@ -1,0 +1,25 @@
+export const fetchUser = (userInput) => {
+
+    let user = {
+        username: userInput
+    }
+
+    let obj = {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+            },
+        body: JSON.stringify(user)
+    }
+
+    return (dispatch) => {
+        fetch('http://localhost:3000/api/v1/users/', obj)
+        .then(resp => resp.json())
+        // changes after this
+        .then(data => {
+            console.log(data)
+        // dispatch({ type: 'ADD_USER', books: data })
+        })
+    }
+}
