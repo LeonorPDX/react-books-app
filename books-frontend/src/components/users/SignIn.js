@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 
 import { fetchUser } from '../../actions/fetchUser'
 
@@ -17,10 +18,12 @@ class SignIn extends React.Component {
 
     handleOnSubmit(e) {
         e.preventDefault();
-        this.props.fetchUser(this.state.username)
+        this.props.fetchUser(this.state.username);
+        this.props.history.push('/books')
     }
 
     render() {
+
         return (
             <div className="card text-center">
                 <div className="card-header">
@@ -47,4 +50,4 @@ function mapDispatch(d) {
     }
 }
   
-export default connect(null, mapDispatch)(SignIn)
+export default connect(null, mapDispatch)(withRouter(SignIn))

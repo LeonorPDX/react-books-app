@@ -1,6 +1,8 @@
 import React from 'react';
+import { Route } from 'react-router-dom';
 
-//import BooksContainer from './containers/BooksContainer';
+import BooksContainer from './containers/BooksContainer';
+import UsersContainer from './containers/UsersContainer';
 import NavBar from './NavBar';
 import SignIn from './components/users/SignIn'
 
@@ -24,7 +26,9 @@ class App extends React.Component {
         </header>
 
         <main>
-          <SignIn />
+          <Route exact path="/" component={SignIn} />
+          <Route exact path="/books" component={BooksContainer} />
+          <Route exact path="/users" component={UsersContainer} />
         </main>
 
       </div>
