@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-//
+
+
+import User from '../components/users/User';
 //import Books from '../components/books/Books';
 //import { fetchBooks } from '../actions/fetchBooks'
 //import SearchBooks from '../components/books/SearchBooks';
@@ -14,23 +16,23 @@ class UsersContainer extends Component {
     render() {
         return (
         <div>
-          Users Container, inside the render
+          <User user={this.props.user} />
         </div>
         )
 
     }
 }
-//
-//const mapState = state => {
-//  return {
-//    books: state.books.displayBooks
-//  }
-//}
-//
+
+const mapState = state => {
+  return {
+    user: state.user
+  }
+}
+
 //function mapDispatch(d) {
 //    return { 
 //      fetchBooks: () => d(fetchBooks())
 //    }
 //}
-//  
-export default connect()(UsersContainer);
+ 
+export default connect(mapState)(UsersContainer);
