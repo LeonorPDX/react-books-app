@@ -25,6 +25,8 @@ class SignIn extends React.Component {
     render() {
 
         return (
+            <div>
+                <br />
             <div className="card text-center">
                 <div className="card-header">
                     <a href="https://github.com/LeonorPDX/react-books-app">GitHub Repo</a>
@@ -38,6 +40,8 @@ class SignIn extends React.Component {
                 <div className="card-footer text-muted">
                     React Portfolio Project by Leonor Colbert
                 </div>
+            </div>
+            <br />
             </div>
         )
     }

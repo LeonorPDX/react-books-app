@@ -1,37 +1,26 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
+
+const link = {
+  width: '100px',
+  padding: '12px',
+  margin: '0 6px 6px',
+  textDecoration: 'none',
+  color: 'blue',
+}
 
 class NavBar extends React.Component {
 
     render() {
-        return (
-        <nav className="navbar navbar-expand-lg">
+        return (  // make this into two columns, one on left with all books and my books, on the right the links to external resources (github, video, blog)
+          <div className="container">
+            <br />
+            <a style={link} href="https://github.com/LeonorPDX/react-books-app">GitHub Repo</a>
 
-            <div className="container">
-    
-              <a className="navbar-brand" href="http://localhost:3000">Boss Books</a>
-    
-              <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
-                aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span className="navbar-toggler-icon"></span>
-              </button>
-    
-              <div className="collapse navbar-collapse" id="basicExampleNav">
-    
-                <ul className="navbar-nav mr-auto">
-                  <li className="nav-item active">
-                    <a className="nav-link" href="http://localhost:3000">Home</a>
-                  </li>
-                  <li className="nav-item">
-                    <a className="nav-link" href="http://localhost:3000">Features</a>
-                  </li>
-                  <li className="nav-item">
-                    <a className="nav-link" href="http://localhost:3000">Pricing</a>
-                  </li>
-    
-                </ul>
-              </div>
-            </div>
-        </nav>
+            <NavLink to='/books' exact style={link} activeStyle={{ background: 'lightgrey' }}>All Books</NavLink>
+
+            <NavLink to='/users' exact style={link} activeStyle={{ background: 'lightgrey' }}>My Books</NavLink>
+          </div>
         )
     }
 }
