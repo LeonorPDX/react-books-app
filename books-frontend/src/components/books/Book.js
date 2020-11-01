@@ -1,12 +1,22 @@
 import React from 'react';
 
 class Book extends React.Component {
+    
+    findBook() {
+        let id = parseInt(this.props.match.params.id, 10);
+
+        let book = this.props.books.find(book => book.id === id);
+
+        return book;
+    }
+    
+    buttonDisplay() {
+        // if this book is in props.userBooks, show remove button. Else, show add button.
+    }
+
     render() {
-    console.log(this.props);
 
-    let id = parseInt(this.props.match.params.id, 10)
-
-    let book = this.props.books.find(book => book.id === id);
+    let book = this.findBook()
 
     return (
         <div className="card">
