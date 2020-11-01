@@ -30,7 +30,9 @@ class Book extends React.Component {
     let book = this.findBook()
 
     console.log(this.props)
-
+    
+    debugger
+    
     return (
         <div className="container">
 
@@ -50,11 +52,14 @@ class Book extends React.Component {
                     <p className="card-text">{book ? book.description : null}</p>
                 </div>
             </div>
-                <a href="http://localhost:3000" className="btn btn-primary">Go somewhere</a>
+                <a href="http://localhost:3000" className="btn btn-primary">Add/Remove Button</a>
             </div>
         </div>
 
+        <br />
         <NoteInput />
+        <br />
+
         {this.renderNotes()}
 
         </div>

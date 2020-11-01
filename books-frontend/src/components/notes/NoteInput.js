@@ -3,12 +3,13 @@ import React, { Component } from 'react';
 class NoteInput extends Component {
   
   state = {
-    content: ''
+    content: '',
+    username: ''
   }
 
   handleOnChange(event) {
     this.setState({
-      content: event.target.value,
+      [event.target.name]: event.target.value,
     });
   }
 
@@ -28,7 +29,15 @@ class NoteInput extends Component {
             className="form-control"
             rows="4"
             placeholder="What are your thoughts?..."
+            name="content"
             value={this.state.content}
+            onChange={(event) => this.handleOnChange(event)} />
+            <br />
+            <input 
+            name="username"
+            placeholder="Username"
+            className="form-control"
+            value={this.state.username}
             onChange={(event) => this.handleOnChange(event)} />
             <br />
           <input className="btn btn-primary" type="submit" />

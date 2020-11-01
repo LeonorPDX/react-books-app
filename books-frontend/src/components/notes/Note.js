@@ -6,6 +6,9 @@ const Note = props => {
         <div className="card-body">
             {props.note.content}
         </div>
+        <div className="card-footer">
+            {props.note.updated_at}
+        </div>
     </div>
     )
 }
