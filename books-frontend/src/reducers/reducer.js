@@ -8,16 +8,12 @@ const rootReducer = combineReducers({
 export default rootReducer;
 
 
-function manageBooks(state = {allBooks: [], displayBooks: []}, action) {
+function manageBooks(state = [], action) {
     switch (action.type) {
       case 'ADD_ALL_BOOKS':
 
-        return {...state, allBooks: action.books, displayBooks: action.books}
-        
-    case 'UPDATE_DISPLAY_BOOKS': // Maybe I don't need display books? By having component-level state in search compenent I can change what is displayed.
+        return action.books
 
-        return {...state, displayBooks: action.books}
-    
       default:
         return state;
     }

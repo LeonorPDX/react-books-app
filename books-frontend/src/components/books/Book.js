@@ -18,6 +18,8 @@ class Book extends React.Component {
 
     let book = this.findBook()
 
+    console.log(this.props)
+
     return (
         <div className="card">
             <div className="card-header">

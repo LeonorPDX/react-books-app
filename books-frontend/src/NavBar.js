@@ -20,7 +20,7 @@ class NavBar extends React.Component {
 
               <NavLink to='/books' exact style={link} activeStyle={{ background: 'lightgrey' }}>All Books</NavLink>
 
-              <NavLink to='/users' exact style={link} activeStyle={{ background: 'lightgrey' }}>My Books</NavLink>
+              <NavLink to='/user/books' exact style={link} activeStyle={{ background: 'lightgrey' }}>My Books</NavLink>
             </div>
 
             <div className="container">
