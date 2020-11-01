@@ -21,7 +21,7 @@ class BooksContainer extends Component {
         <div>
           <NavBar />
           <Switch>
-            <Route path='/books/:id' render={(routerProps) => <Book {...routerProps} books={this.props.books}/>}/>
+            <Route path='/books/:id' render={(routerProps) => <Book {...routerProps} books={this.props.books} userBooks={this.props.userBooks} />}/>
             <Route path='/books' render={(routerProps) => <Books {...routerProps} books={this.props.books}/>}/>
             <Route path='/users' component={UsersContainer} />
             <Route exact path='/' component={SignIn} />
@@ -34,7 +34,8 @@ class BooksContainer extends Component {
 
 const mapState = state => {
   return {
-    books: state.books.displayBooks
+    books: state.books.displayBooks,
+    userBooks: state.user.userBooks
   }
 }
 
