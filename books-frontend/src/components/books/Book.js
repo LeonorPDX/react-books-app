@@ -1,39 +1,34 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-
-class Book extends Component {
+class Book extends React.Component {
     render() {
-        return (
-            <div>Book show page</div>
-        )
-    }
+    console.log(this.props);
 
-//  render() {
-//    const { books, match } = this.props;
-//    const book = books.find(b => b.id === match.params.id)
-//
-//    return (
-//        <div class="card">
-//            <div class="card-header">
-//                Book Details
-//            </div>
-//
-//            <div class="card-body">
-//            <div class="row">
-//                <div class="col">
-//                    <img src={book.img} alt={book.title} />
-//                </div>
-//                <div class="col-6">
-//                    <h5 class="card-title">{book.title}</h5>
-//                    <p class="card-text">{book.authors}</p>
-//                    <p class="card-text">{book.description}</p>
-//                </div>
-//            </div>
-//                <a href="http://localhost:3000" class="btn btn-primary">Go somewhere</a>
-//            </div>
-//        </div>
-//    );
-//  }
+    let id = parseInt(this.props.match.params.id, 10)
+
+    let book = this.props.books.find(book => book.id === id);
+
+    return (
+        <div className="card">
+            <div className="card-header">
+                Book Details
+            </div>
+
+            <div className="card-body">
+            <div className="row">
+                <div className="col">
+                    <img src={book ? book.img : null} alt={book ? book.title : null} />
+                </div>
+                <div className="col-8">
+                    <h5 className="card-title">{book ? book.title : null}</h5>
+                    <p className="card-text">{ book ? book.authors : null}</p>
+                    <p className="card-text">{book ? book.description : null}</p>
+                </div>
+            </div>
+                <a href="http://localhost:3000" className="btn btn-primary">Go somewhere</a>
+            </div>
+        </div>
+    )};
 };
 
 export default Book;
