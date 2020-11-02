@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Note from '../notes/Note';
+import Notes from '../notes/Notes';
 import NoteInput from '../notes/NoteInput';
 
 class Book extends React.Component {
@@ -16,9 +16,16 @@ class Book extends React.Component {
     renderNotes() {
         let book = this.findBook();
 
-        if (book !== undefined) {
+        let foundBook = this.props.user.userBooks.find(b => b.id === book.id)
+
+        if (foundBook !== undefined) {        
             return (
-                book.notes.map(note => <Note key={note.id} note={note} />)
+            <div>
+                <br />
+                <NoteInput />
+                <br />
+                <Notes book={book} notes={this.props.user.userNotes} />
+            </div>
             )
         } else {
             return null
@@ -53,13 +60,7 @@ class Book extends React.Component {
                 <a href="http://localhost:3000" className="btn btn-primary">Add/Remove Button</a>
             </div>
         </div>
-
-        <br />
-        <NoteInput />
-        <br />
-
-        {this.renderNotes()}
-
+        {book ? this.renderNotes() : null}
         </div>
     )};
 };
