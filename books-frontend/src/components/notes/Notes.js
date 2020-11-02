@@ -17,6 +17,7 @@ class Notes extends Component {
         return(
         <div className="container">            
             <h4>Notes</h4>
+            
             {this.renderNotes()}
         </div>
         );

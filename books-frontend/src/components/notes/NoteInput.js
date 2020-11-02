@@ -4,40 +4,40 @@ class NoteInput extends Component {
   
   state = {
     content: '',
-    username: ''
   }
 
   handleOnChange(event) {
     this.setState({
-      [event.target.name]: event.target.value,
+      content: event.target.value,
     });
   }
 
-  //handleOnSubmit(event) {
-  //  event.preventDefault();
-  //  this.props.addNote(this.state.content);
-  //  this.setState({
-  //    content: '',
-  //  });
-  //}
+  handleOnSubmit(event) {
+    event.preventDefault();
+    let configObj = {
+      content: this.state.content,
+      user_id: this.props.userId,
+      book_id: this.props.bookId
+    }
+
+    this.props.addNote(configObj);
+
+    this.setState({
+      content: '',
+    });
+  }
 
   render() {
+    console.log(this.props)
+
     return (
       <div>
-        <form>
+        <form onSubmit={e => this.handleOnSubmit(e)}>
           <textarea
             className="form-control"
             rows="4"
             placeholder="What are your thoughts?..."
-            name="content"
             value={this.state.content}
-            onChange={(event) => this.handleOnChange(event)} />
-            <br />
-            <input 
-            name="username"
-            placeholder="Username"
-            className="form-control"
-            value={this.state.username}
             onChange={(event) => this.handleOnChange(event)} />
             <br />
           <input className="btn btn-primary" type="submit" />

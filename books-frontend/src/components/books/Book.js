@@ -16,19 +16,23 @@ class Book extends React.Component {
     renderNotes() {
         let book = this.findBook();
 
-        let foundBook = this.props.user.userBooks.find(b => b.id === book.id)
+        if (book !== undefined && this.props.user !== undefined) {
 
-        if (foundBook !== undefined) {        
-            return (
-            <div>
-                <br />
-                <NoteInput />
-                <br />
-                <Notes book={book} notes={this.props.user.userNotes} />
-            </div>
-            )
-        } else {
-            return null
+            let foundBook = this.props.user.userBooks.find(b => b.id === book.id)
+
+            if (foundBook !== undefined) {        
+                return (
+                <div>
+                    <br />
+                    <NoteInput userId={this.props.user.id} bookId={book.id} addNote={this.props.addNote} />
+                    <br />
+                    <Notes book={book} notes={this.props.user.userNotes} />
+                </div>
+                )
+            } else {
+                return null
+            }
+
         }
     }
 
@@ -60,7 +64,7 @@ class Book extends React.Component {
                 <a href="http://localhost:3000" className="btn btn-primary">Add/Remove Button</a>
             </div>
         </div>
-        {book ? this.renderNotes() : null}
+        {this.props.user ? this.renderNotes() : null}
         </div>
     )};
 };

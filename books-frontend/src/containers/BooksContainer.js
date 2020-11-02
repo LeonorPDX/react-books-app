@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 import { Route, Switch } from 'react-router-dom';
 
 import Books from '../components/books/Books';
-import { fetchBooks } from '../actions/fetchBooks'
+import { fetchBooks } from '../actions/fetchBooks';
+import { addNote } from '../actions/addNote';
 import Book from '../components/books/Book';
 
 
@@ -17,7 +18,7 @@ class BooksContainer extends Component {
         return (
         <div>
           <Switch>
-            <Route path={`${this.props.match.url}/:id`} render={(routerProps) => <Book {...routerProps} books={this.props.books} user={this.props.user} />}/>
+            <Route path={`${this.props.match.url}/:id`} render={(routerProps) => <Book {...routerProps} books={this.props.books} user={this.props.user} addNote={this.props.addNote} />}/>
             <Route path='/books' render={(routerProps) => <Books {...routerProps} books={this.props.books} user={this.props.user} />} />  
           </Switch>        
         </div>
@@ -33,10 +34,12 @@ const mapState = state => {
   }
 }
 
-function mapDispatch(d) {
-    return { 
-      fetchBooks: () => d(fetchBooks())
-    }
+const mapDispatch = dispatch => {
+  return { 
+    fetchBooks: () => dispatch(fetchBooks()),
+    addNote: (note) => dispatch(addNote(note))
+  }
 }
+
   
 export default connect(mapState, mapDispatch)(BooksContainer);

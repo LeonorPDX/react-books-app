@@ -25,9 +25,17 @@ function manageUser(state = {username: "", id: 0, userBooks: [], userNotes: []},
   
           return {...state, username: action.user.username, id: action.user.id, userBooks: action.user.books, userNotes: action.user.notes }
 
-          // case 'ADD_USER_BOOK' returns state and concat action.book onto userBooks
-          // case 'ADD_USER_NOTE' returns state and concat action.note onto userNotes
           // case 'REMOVE_USER_BOOK' returns statre and filters userBooks for book matching action.book
+          // case 'ADD_USER_BOOK' returns state and concat action.book onto userBooks
+
+        case 'ADD_NOTE':
+        
+          return {
+            ...state,
+            userBooks: state.userBooks,
+            userNotes: state.userNotes.concat(action.note)
+          } 
+          
 
         default:
           return state;
