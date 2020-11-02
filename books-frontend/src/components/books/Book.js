@@ -13,20 +13,31 @@ class Book extends React.Component {
         return book;
     }
 
+    handleAddBook(e) {
+        e.preventDefault();
+        let book = this.findBook();
+        let configObj = {
+            user_id: this.props.user.id,
+            book_id: book.id
+          }
+      
+        this.props.addUserBook(configObj);
+    }
+    
     renderButton() {
         let book = this.findBook();
 
-        if (book !== undefined && this.props.user !== undefined) {
+        if (book !== undefined && this.props.user.username !== "") {
 
             let foundBook = this.props.user.userBooks.find(b => b.id === book.id)
 
             if (foundBook !== undefined) {        
                 return (
-                <button className="btn btn-primary">Remove Book</button>
+                <button className="btn btn-primary" >Remove Book</button>
                 )
             } else {
                 return (
-                    <button className="btn btn-primary">Add Book</button>
+                <button className="btn btn-primary" onClick={e => this.handleAddBook(e)}>Add Book</button>
                 )
             }
         }   
@@ -35,7 +46,7 @@ class Book extends React.Component {
     renderNotes() {
         let book = this.findBook();
 
-        if (book !== undefined && this.props.user !== undefined) {
+        if (book !== undefined && this.props.user.username !== "") {
 
             let foundBook = this.props.user.userBooks.find(b => b.id === book.id)
 
@@ -81,7 +92,7 @@ class Book extends React.Component {
             </div>
             </div>
         </div>
-        {this.props.user ? this.renderNotes() : null}
+        {this.renderNotes()}
         </div>
     )};
 };
