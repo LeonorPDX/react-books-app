@@ -14,7 +14,6 @@ class Book extends React.Component {
     }
 
     handleAddBook(e) {
-        e.preventDefault();
         let book = this.findBook();
         let configObj = {
             user_id: this.props.user.id,
@@ -22,6 +21,12 @@ class Book extends React.Component {
           }
       
         this.props.addUserBook(configObj);
+    }
+
+    handleRemoveBook(e) {
+        let book = this.findBook();
+          
+        this.props.removeUserBook(this.props.user.id, book.id);
     }
     
     renderButton() {
@@ -33,7 +38,7 @@ class Book extends React.Component {
 
             if (foundBook !== undefined) {        
                 return (
-                <button className="btn btn-primary" >Remove Book</button>
+                <button className="btn btn-primary" onClick={e => this.handleRemoveBook(e)}>Remove Book</button>
                 )
             } else {
                 return (
@@ -82,7 +87,7 @@ class Book extends React.Component {
                 <div className="col">
                     <img src={book ? book.img : null} alt={book ? book.title : null} />
                     <br /><br />
-                    {this.props.user ? this.renderButton() : null}
+                    {this.renderButton()}
                 </div>
                 <div className="col-8">
                     <h5 className="card-title">{book ? book.title : null}</h5>

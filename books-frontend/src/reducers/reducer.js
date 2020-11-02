@@ -20,12 +20,20 @@ function manageBooks(state = [], action) {
 };
 
 function manageUser(state = {username: "", id: 0, userBooks: [], userNotes: []}, action) {
-    switch (action.type) {
+ 
+  switch (action.type) {
         case 'ADD_USER':
   
           return {...state, username: action.user.username, id: action.user.id, userBooks: action.user.books, userNotes: action.user.notes }
 
-          // case 'REMOVE_USER_BOOK' returns statre and filters userBooks for book matching action.book
+        case 'REMOVE_USER_BOOK':
+
+          return {
+            ...state,
+            userNotes: state.userNotes,
+            userBooks: state.userBooks.filter(b => b.id !== action.book.id)
+          }         
+
         case 'ADD_USER_BOOK':
              
           return {
