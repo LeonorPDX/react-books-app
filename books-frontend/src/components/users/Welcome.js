@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
-import { fetchUser } from '../../actions/fetchUser'
+import { signinUser } from '../../actions/signinUser'
 
 class SignIn extends React.Component {
 
@@ -18,7 +18,7 @@ class SignIn extends React.Component {
 
     handleOnSubmit(e) {
         e.preventDefault();
-        this.props.fetchUser(this.state.username);
+        this.props.signinUser(this.state.username);
         this.props.history.push('/books')
     }
 
@@ -50,7 +50,7 @@ class SignIn extends React.Component {
 
 function mapDispatch(d) {
     return { 
-      fetchUser: (name) => d(fetchUser(name))
+      signinUser: (name) => d(signinUser(name))
     }
 }
   

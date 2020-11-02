@@ -7,7 +7,11 @@ class Api::V1::UsersController < ApplicationController
         render json: user, only: [:id, :username], include: [:notes, :books]
     end
 
-    def show
+
+
+
+
+    def index
         user = User.current_user
         if user != "Error"
             render json: user, only: [:id, :username], include: [:notes, :books]

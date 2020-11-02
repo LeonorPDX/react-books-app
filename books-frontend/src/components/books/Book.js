@@ -31,8 +31,6 @@ class Book extends React.Component {
 
     console.log(this.props)
     
-    debugger
-    
     return (
         <div className="container">
 
