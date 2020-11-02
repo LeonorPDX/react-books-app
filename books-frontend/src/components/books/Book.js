@@ -18,7 +18,7 @@ class Book extends React.Component {
         let configObj = {
             user_id: this.props.user.id,
             book_id: book.id
-          }
+        }
       
         this.props.addUserBook(configObj);
     }
@@ -32,7 +32,7 @@ class Book extends React.Component {
     renderButton() {
         let book = this.findBook();
 
-        if (book !== undefined && this.props.user.username !== "") {
+        if (book !== undefined) {
 
             let foundBook = this.props.user.userBooks.find(b => b.id === book.id)
 
@@ -51,7 +51,7 @@ class Book extends React.Component {
     renderNotes() {
         let book = this.findBook();
 
-        if (book !== undefined && this.props.user.username !== "") {
+        if (book !== undefined) {
 
             let foundBook = this.props.user.userBooks.find(b => b.id === book.id)
 
@@ -59,9 +59,9 @@ class Book extends React.Component {
                 return (
                 <div>
                     <br />
-                    <NoteInput userId={this.props.user.id} bookId={book.id} addNote={this.props.addNote} />
-                    <br />
                     <Notes book={book} notes={this.props.user.userNotes} />
+                    <br />                    
+                    <NoteInput userId={this.props.user.id} bookId={book.id} addNote={this.props.addNote} />
                 </div>
                 )
             } else {
@@ -87,7 +87,7 @@ class Book extends React.Component {
                 <div className="col">
                     <img src={book ? book.img : null} alt={book ? book.title : null} />
                     <br /><br />
-                    {this.renderButton()}
+                    {book ? this.renderButton() : null}
                 </div>
                 <div className="col-8">
                     <h5 className="card-title">{book ? book.title : null}</h5>
@@ -97,7 +97,7 @@ class Book extends React.Component {
             </div>
             </div>
         </div>
-        {this.renderNotes()}
+        {book ? this.renderNotes() : null}
         </div>
     )};
 };
