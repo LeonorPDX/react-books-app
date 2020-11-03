@@ -5,7 +5,7 @@ class Api::V1::NotesController < ApplicationController
         if note.save
             render json: note
         else
-            reder json: {error: "Error creating note."}
+            render json: {error: "Error creating note."}
         end
     end
     
