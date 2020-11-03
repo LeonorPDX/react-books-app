@@ -12,17 +12,27 @@ const link = {
 class NavBar extends React.Component {
 
     render() {
-        return (  // make this into two columns, one on left with all books and my books, on the right the links to external resources (github, video, blog)
+        return (
           <header>
             <div className="container">
-              <br />
-              <a style={link} href="https://github.com/LeonorPDX/react-books-app">GitHub Repo</a>
+              <br />              
+              <div className="row">
+                <div className="col">
+                  <NavLink to='/books' exact style={link} activeStyle={{ background: 'lightgrey' }}>All Books</NavLink>
+                  <NavLink to={`/users/${this.props.userId}/books`} exact style={link} activeStyle={{ background: 'lightgrey' }}>My Books</NavLink>
+                </div>
 
-              <NavLink to='/books' exact style={link} activeStyle={{ background: 'lightgrey' }}>All Books</NavLink>
-
-              <NavLink to={`/users/${this.props.userId}/books`} exact style={link} activeStyle={{ background: 'lightgrey' }}>My Books</NavLink>
+                <div className="col">
+                  <div className="text-right">
+                  <a href="https://github.com/LeonorPDX/react-books-app" style={link}>GitHub Repo</a>
+                  <a href="https://leonorpdx.github.io/" style={link}>Blog</a>
+                  <a href="https://www.youtube.com/channel/UChrKscpJcXnhRLyNLVuS1ew/" style={link}>Video</a>
+                  </div>
+                </div>
             </div>
 
+            </div>
+            
             <div className="container">
               <div className="row pt-5">
                 <div className="col text-center">
