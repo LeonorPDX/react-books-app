@@ -34,7 +34,7 @@ class SignIn extends React.Component {
                 <div className="card-body">
                     <h5 className="card-title">Enter a Username to Get Started</h5>
                     <form onSubmit={e => this.handleOnSubmit(e)}>
-                        <input type="text" value={this.state.username} onChange={e => this.handleOnChange(e)} placeholder="Username" />
+                        <input type="text" value={this.state.username} onChange={e => this.handleOnChange(e)} placeholder="Username" required />
                     </form>
                 </div>
                 <div className="card-footer text-muted">

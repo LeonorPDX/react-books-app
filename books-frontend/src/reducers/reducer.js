@@ -22,36 +22,36 @@ function manageBooks(state = [], action) {
 function manageUser(state = {username: "", id: 0, userBooks: [], userNotes: []}, action) {
  
   switch (action.type) {
-        case 'ADD_USER':
-  
-          return {...state, username: action.user.username, id: action.user.id, userBooks: action.user.books, userNotes: action.user.notes }
+    case 'ADD_USER':
 
-        case 'REMOVE_USER_BOOK':
+      return {...state, username: action.user.username, id: action.user.id, userBooks: action.user.books, userNotes: action.user.notes }
 
-          return {
-            ...state,
-            userNotes: state.userNotes,
-            userBooks: state.userBooks.filter(b => b.id !== action.book.id)
-          }         
+    case 'REMOVE_USER_BOOK':
 
-        case 'ADD_USER_BOOK':
-             
-          return {
-            ...state,
-            userNotes: state.userNotes,
-            userBooks: state.userBooks.concat(action.book)
-          } 
+      return {
+        ...state,
+        userNotes: state.userNotes,
+        userBooks: state.userBooks.filter(b => b.id !== action.book.id)
+      }         
 
-        case 'ADD_NOTE':
-        
-          return {
-            ...state,
-            userBooks: state.userBooks,
-            userNotes: state.userNotes.concat(action.note)
-          } 
+    case 'ADD_USER_BOOK':
           
+      return {
+        ...state,
+        userNotes: state.userNotes,
+        userBooks: state.userBooks.concat(action.book)
+      } 
 
-        default:
-          return state;
-      }
+    case 'ADD_NOTE':
+    
+      return {
+        ...state,
+        userBooks: state.userBooks,
+        userNotes: state.userNotes.concat(action.note)
+      } 
+      
+
+    default:
+      return state;
+  }
 };

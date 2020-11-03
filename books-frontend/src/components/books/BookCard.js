@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 
 class BookCard extends Component {
@@ -14,7 +15,7 @@ class BookCard extends Component {
             <div className="card-body">
                 <h5 className="card-title">{book.title}</h5>
                 <p className="card-text">{book.authors}</p>
-                <a href={`/books/${book.id}`} className="btn btn-primary">View Book</a>
+                <Link to={`/books/${book.id}`} className="btn btn-primary">View Book</Link>
             </div>
             </div>
         </div>
