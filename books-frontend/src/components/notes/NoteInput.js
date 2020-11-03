@@ -14,13 +14,13 @@ class NoteInput extends Component {
 
   handleOnSubmit(event) {
     event.preventDefault();
-    let configObj = {
+    let obj = {
       content: this.state.content,
       user_id: this.props.userId,
       book_id: this.props.bookId
     }
 
-    this.props.addNote(configObj);
+    this.props.addNote(obj);
 
     this.setState({
       content: '',

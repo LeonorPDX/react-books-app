@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import Note from './Note';
 
-// Takes all the user's notes and the book. Filter notes by book, then render note for each with book title
-
 class Notes extends Component {
 
     renderNotes() {
@@ -16,8 +14,7 @@ class Notes extends Component {
 
         return(
         <div className="container">            
-            <h4>Notes</h4>
-            
+            <h4>Notes</h4>            
             {this.renderNotes()}
         </div>
         );
