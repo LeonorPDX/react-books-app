@@ -32,42 +32,37 @@ class Book extends React.Component {
     renderButton() {
         let book = this.findBook();
 
-        if (book !== undefined) {
+        let foundBook = this.props.user.userBooks.find(b => b.id === book.id)
 
-            let foundBook = this.props.user.userBooks.find(b => b.id === book.id)
-
-            if (foundBook !== undefined) {        
-                return (
-                <button className="btn btn-primary" onClick={e => this.handleRemoveBook(e)}>Remove Book</button>
-                )
-            } else {
-                return (
-                <button className="btn btn-primary" onClick={e => this.handleAddBook(e)}>Add Book</button>
-                )
-            }
-        }   
+        if (foundBook !== undefined) {        
+            return (
+            <button className="btn btn-primary" onClick={e => this.handleRemoveBook(e)}>Remove Book</button>
+            )
+        } else {
+            return (
+            <button className="btn btn-primary" onClick={e => this.handleAddBook(e)}>Add Book</button>
+            )
+        }  
     }
     
     renderNotes() {
         let book = this.findBook();
 
-        if (book !== undefined) {
+        let foundBook = this.props.user.userBooks.find(b => b.id === book.id)
 
-            let foundBook = this.props.user.userBooks.find(b => b.id === book.id)
-
-            if (foundBook !== undefined) {        
-                return (
-                <div>
-                    <br />
-                    <Notes book={book} notes={this.props.user.userNotes} />
-                    <br />                    
-                    <NoteInput userId={this.props.user.id} bookId={book.id} addNote={this.props.addNote} />
-                </div>
-                )
-            } else {
-                return null
-            }
+        if (foundBook !== undefined) {        
+            return (
+            <div>
+                <br />
+                <Notes book={book} notes={this.props.user.userNotes} />
+                <br />                    
+                <NoteInput userId={this.props.user.id} bookId={book.id} addNote={this.props.addNote} />
+            </div>
+            )
+        } else {
+            return null
         }
+    
     }
 
     render() {
