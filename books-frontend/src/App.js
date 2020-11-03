@@ -21,11 +21,11 @@ class App extends React.Component {
 
     return (
       <div className="App">
-        <NavBar />
+        <NavBar userId={this.props.userId} />
 
         <Switch>
           <Route path='/books' render={(routerProps) => <BooksContainer {...routerProps} />} />
-          <Route path='/user/books' component={UsersContainer} />
+          <Route path='/users/:id/books' component={UsersContainer} />
           <Route exact path='/' component={Welcome} />
         </Switch>
       </div>
@@ -33,6 +33,11 @@ class App extends React.Component {
   }
 }
 
+const mapState = state => {
+  return {
+    userId: state.user.id
+  }
+}
 
 
-export default connect(null, { fetchUser })(App)
+export default connect(mapState, { fetchUser })(App)
