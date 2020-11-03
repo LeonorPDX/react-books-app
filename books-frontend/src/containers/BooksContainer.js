@@ -39,7 +39,7 @@ const mapDispatch = dispatch => {
     fetchBooks: () => dispatch(fetchBooks()),
     addNote: (note) => dispatch(addNote(note)),
     addUserBook: (userBook) => dispatch(addUserBook(userBook)),
-    removeUserBook: (uid, bid) => dispatch(removeUserBook(uid, bid))
+    removeUserBook: (userId, bookId) => dispatch(removeUserBook(userId, bookId))
   }
 }
 
