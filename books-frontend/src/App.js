@@ -10,7 +10,6 @@ import Welcome from './components/users/Welcome';
 import { fetchUser } from './actions/fetchUser'
 
 
-
 class App extends React.Component {
 
   componentDidMount() {
