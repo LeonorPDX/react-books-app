@@ -8,7 +8,7 @@ const Note = props => {
             {props.note.content}
         </div>
         <div className="card-footer">
-            <small><i>{props.bookTitle}</i></small>
+        <small><i>{props.bookTitle} - {props.note.format_date}</i></small>
         </div>
     </div>
     <br />
