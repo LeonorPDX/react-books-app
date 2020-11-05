@@ -10,5 +10,12 @@ class Api::V1::NotesController < ApplicationController
             render json: {error: "Error creating note."}
         end
     end
+
+    def destroy
+        note_id = params[:id]
+        note = Note.find(params[:id])
+        note.destroy
+        render json: {id: note_id.to_i}        
+    end
     
 end

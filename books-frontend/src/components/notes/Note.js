@@ -1,19 +1,41 @@
 import React from 'react';
 
-const Note = props => {
-    return (
-    <div>
-    <div className="card">
-        <div className="card-body">
-            {props.note.content}
+class Note extends React.Component {
+    
+    handleDeleteNote(e) {         
+        this.props.deleteNote(this.props.note.id);
+    }
+    
+    render() {
+        return (
+        <div>
+        <div className="card">
+
+            <div className="card-header">
+                <div className="row">
+                    <div className="col-9">
+                        <small><i>{this.props.bookTitle} - {this.props.note.format_date}</i></small>
+                    </div>
+                    <div className="col">
+                        <div className="text-right">
+                            <button type="button" className="close" aria-label="Delete Note" onClick={e => this.handleDeleteNote(e)} >
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div className="card-body">
+                {this.props.note.content}
+            </div>
+
         </div>
-        <div className="card-footer">
-        <small><i>{props.bookTitle} - {props.note.format_date}</i></small>
+        <br />
         </div>
-    </div>
-    <br />
-    </div>
-    )
+        )
+    }
 }
 
 export default Note

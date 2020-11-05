@@ -54,7 +54,7 @@ class Book extends React.Component {
             return (
             <div>
                 <br />
-                <Notes book={book} notes={this.props.user.userNotes} />
+                <Notes book={book} notes={this.props.user.userNotes} deleteNote={this.props.deleteNote} />
                 <br />                    
                 <NoteInput userId={this.props.user.id} bookId={book.id} addNote={this.props.addNote} />
             </div>

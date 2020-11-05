@@ -6,7 +6,7 @@ class Notes extends Component {
     renderNotes() {
         let filteredNotes = this.props.notes.filter(n => n.book_id === this.props.book.id)
         return (
-            filteredNotes.map(note => <Note key={note.id} note={note} bookTitle={this.props.book.title} />)
+            filteredNotes.map(note => <Note key={note.id} note={note} bookTitle={this.props.book.title} deleteNote={this.props.deleteNote} />)
         )
     }
 

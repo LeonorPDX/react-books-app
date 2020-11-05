@@ -48,7 +48,15 @@ function manageUser(state = {username: "", id: 0, userBooks: [], userNotes: []},
         ...state,
         userBooks: state.userBooks,
         userNotes: state.userNotes.concat(action.note)
-      } 
+      }
+      
+    case 'DELETE_NOTE':
+
+      return {
+        ...state,
+        userBooks: state.userBooks,
+        userNotes: state.userNotes.filter(n => n.id !== action.note.id)
+      }
       
 
     default:
