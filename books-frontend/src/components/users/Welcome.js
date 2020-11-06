@@ -10,13 +10,13 @@ class SignIn extends React.Component {
         username: ""
     }
 
-    handleOnChange(e) {
+    handleOnChange = (e) => {
         this.setState({
             username: e.target.value
         })
     }
 
-    handleOnSubmit(e) {
+    handleOnSubmit = (e) => {
         e.preventDefault();
         this.props.signinUser(this.state.username);
         this.props.history.push('/books')
@@ -33,8 +33,8 @@ class SignIn extends React.Component {
                 </div>
                 <div className="card-body">
                     <h5 className="card-title">Enter a Username to Get Started</h5>
-                    <form onSubmit={e => this.handleOnSubmit(e)}>
-                        <input type="text" value={this.state.username} onChange={e => this.handleOnChange(e)} placeholder="Username" required />
+                    <form onSubmit={this.handleOnSubmit}>
+                        <input type="text" value={this.state.username} onChange={this.handleOnChange} placeholder="Username" required />
                     </form>
                 </div>
                 <div className="card-footer text-muted">

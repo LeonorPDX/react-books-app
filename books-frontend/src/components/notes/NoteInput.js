@@ -6,13 +6,13 @@ class NoteInput extends Component {
     content: '',
   }
 
-  handleOnChange(event) {
+  handleOnChange = (event) => {
     this.setState({
       content: event.target.value,
     });
   }
 
-  handleOnSubmit(event) {
+  handleOnSubmit = (event) => {
     event.preventDefault();
     let obj = {
       content: this.state.content,
@@ -31,13 +31,13 @@ class NoteInput extends Component {
 
     return (
       <div>
-        <form onSubmit={e => this.handleOnSubmit(e)}>
+        <form onSubmit={this.handleOnSubmit}>
           <textarea
             className="form-control"
             rows="4"
             placeholder="What are your thoughts?..."
             value={this.state.content}
-            onChange={(event) => this.handleOnChange(event)} />
+            onChange={this.handleOnChange} />
             <br />
           <input className="btn btn-primary" type="submit" />
         </form>
