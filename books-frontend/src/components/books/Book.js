@@ -1,7 +1,6 @@
 import React from 'react';
 
-import Notes from '../notes/Notes';
-import NoteInput from '../notes/NoteInput';
+import NotesContainer from '../../containers/NotesContainer';
 
 class Book extends React.Component {
     
@@ -52,12 +51,7 @@ class Book extends React.Component {
 
         if (foundBook !== undefined) {        
             return (
-            <div>
-                <br />
-                <Notes book={book} notes={this.props.user.userNotes} deleteNote={this.props.deleteNote} />
-                <br />                    
-                <NoteInput userId={this.props.user.id} bookId={book.id} addNote={this.props.addNote} />
-            </div>
+                <NotesContainer book={book} user={this.props.user} />
             )
         } else {
             return null
