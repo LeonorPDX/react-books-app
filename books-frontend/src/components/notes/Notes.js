@@ -12,7 +12,6 @@ class Notes extends Component {
     }
 
     render() {
-        console.log(this.props)
         return(
         <div className="container">            
             <h4>Notes</h4>            
