@@ -2,7 +2,7 @@ import React from 'react';
 
 class Note extends React.Component {
     
-    handleDeleteNote(e) {         
+    handleDeleteNote = (e) => {         
         this.props.deleteNote(this.props.note.id);
     }
     
@@ -18,7 +18,7 @@ class Note extends React.Component {
                     </div>
                     <div className="col">
                         <div className="text-right">
-                            <button type="button" className="close" aria-label="Delete Note" onClick={e => this.handleDeleteNote(e)} >
+                            <button type="button" className="close" aria-label="Delete Note" onClick={this.handleDeleteNote} >
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
