@@ -25,8 +25,8 @@ class NavBar extends React.Component {
                 <div className="col">
                   <div className="text-right">
                   <a href="https://github.com/LeonorPDX/react-books-app" style={link}>GitHub Repo</a>
-                  <a href="https://leonorpdx.github.io/" style={link}>Blog</a>
-                  <a href="https://www.youtube.com/channel/UChrKscpJcXnhRLyNLVuS1ew/" style={link}>Video</a>
+                  <a href="https://leonorpdx.github.io/react_and_redux_and_rails_oh_my" style={link}>Blog</a>
+                  <a href="https://youtu.be/-XKY1mlPLbU" style={link}>Video</a>
                   </div>
                 </div>
             </div>
