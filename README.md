@@ -8,8 +8,11 @@ This app was developed as a portfolio project for Flatiron School's Online Softw
 * Clone this repo
 * `cd` into the backend directory
 * Run `bundle install`
-* Run `rails s`
-* Either right click the index.html file to open in browser, or `cd` into the frontend directory and use terminal to run the frontend
+* Run `rails db:migrate` and `rails db:seed`
+* Start backend server with `rails s`
+* `cd` into the frontend directory
+* Run `npm install`
+* Start frontend server with `npm start`
 
 ## Contributing
 Bug reports and pull requests are welcome on GitHub at https://github.com/LeonorPDX/react-books-app
